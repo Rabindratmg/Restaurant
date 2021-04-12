@@ -1,6 +1,11 @@
-const ContactUs=()=>{
+const ContactUs=({data})=>{
+    console.log(data)
     return(
-        <h1>this is contact  page</h1>
+        <div>
+            <h1>this is contact  page</h1>
+            <p>{data}</p>
+        </div>
+
     )
 
 }

@@ -1,19 +1,32 @@
-.NavBar{
-    background-color: blue;
-    height: 40px;
-    width: 100%;
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
 
+.m-f {
+  font-family: "Aclonica", sans-serif;
+  text-transform: uppercase;
 }
-.NavBar ul{
-    text-align: center;
-    display: flex;
-    text-decoration: none;
-    
+body {
+  background-image: linear-gradient(to right, #bdc3c7, #2c3e50);
 }
-
-.NavBar ul li{
-    text-decoration: none;
-    padding: 4px;
-    color: white;
-   
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  transition: background-color 0.5s ease;
+  z-index: 1;
+}
+.scrolling-active {
+  background-color: #fff;
+  box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+}
+.scrolling-active .nav-link::after {
+  background-color: #313131;
+}
+.nav-block {
+  display: block;
+  font-weight: bold;
+}
+.nav-block :hover {
+  color: red;
+  background-color: aliceblue;
+  border-bottom: 2px solid salmon;
 }

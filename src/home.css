@@ -1,0 +1,72 @@
+body {
+    background-image: url("http://www.niteshkumarsapkota.com.np/restro/bg-min.jpeg");
+    background-color: #cccccc;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  .btn {
+    background-color: transparent;
+    border: 3px solid #ffffff;
+    padding: 15px 35px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #000000;
+    margin-right: 15px;
+    transition: all 400ms ease-in-out;
+  }
+  .btn-fill {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .btn-fill:hover {
+    background-color: rgb(223, 226, 43);
+    border-color: transparent;
+  }
+  
+  .btn-trans:hover {
+    background-color: rgb(223, 226, 43);
+    color: #000000;
+    border-color: transparent;
+  }
+  .makeyellow {
+    color: rgb(223, 226, 43);
+  }

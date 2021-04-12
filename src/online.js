@@ -1,35 +1,35 @@
-import React,{ useState } from "react";
-import data from "./menu.js";
-import "./App.css"
-import Button from "./button.js"
+import "./App.css";
+import Button from "./Button.js";
 
 
 
 
-const OnlineOrder=()=>{
-    const [Items] = useState(data);
-    //const [cartitems]=useState([]);
+const OnlineOrder=( {items,onAdditem} )=>{
+    
     return(
-        <div className="MenuItems">
-            {Items.map((data)=>
-            <ul>
-                <li key={data.id}>
-                    <p>{data.id}</p>
-                    <h6>{data.item}</h6>
-                    <img src={data.image}alt={data.image} />
-                    <h6>{data.price}</h6>
-                    <Button onclick={()=>AddItems(data.id)} btnname="Order"/>
-                </li>
-            </ul>
-        )}
+        <div className="container-fluid">
+            <div className="row">
+            {items.map(data=>
+            <div className="col ml-4" key={data.id}>
+                    <h4> {data.item}</h4>
+                    <img style={{height:"100px",width:"100px"}} src={data.image} alt="MenuImages" />
+                    <h4>RS {data.price}</h4>
+                    <Button onclick={()=>onAdditem(data)} btnname="Order"/>
+                    <hr></hr>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    
+            </div>
+            )}
+        </div>
+
         </div>
         
     )
 
 }
 
-function AddItems(id){
-    return console.log(`items added in cart ${id}`)
-}
+
 
 export default OnlineOrder;
