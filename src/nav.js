@@ -2,8 +2,7 @@ import React from "react";
 import "./nav.css";
 import { Link } from "react-router-dom";
 
-const NavBar =()=>{
-
+const NavBar =(props)=>{
      return(  
       <header>
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -36,26 +35,26 @@ const NavBar =()=>{
           </Link>
         </div>
         <div className="nav-block">
-          <Link className="nav-link my-2 my-sm-0" to='/AboutUs'
+          <Link className="nav-link my-2 my-sm-0" to='/aboutus'
             ><span className="fa fa-users"></span>About Us</Link>
         </div>
         <div className="nav-block">
-          <Link className="nav-link my-2 my-sm-0" to="/Gallery"
+          <Link className="nav-link my-2 my-sm-0" to="/gallery"
             ><span className="fa fa-user"></span>Gallery</Link>
         </div>
         <div className="nav-block">
-          <Link className="nav-link my-2 my-sm-0" to="/ContactUs"
+          <Link className="nav-link my-2 my-sm-0" to="/contactus"
             ><i className="fa fa-phone"></i>Contact Us
             </Link>
         </div>
         <div className="nav-block">
-          <Link className="nav-link my-2 my-sm-0" to="/OnlineOrder" 
+          <Link className="nav-link my-2 my-sm-0" to="/menu" 
             ><i className="fa fa-poll-h"></i>Menu
             </Link>
         </div>
         <div className="nav-block">
           <Link className="nav-link my-2 my-sm-0" to="/cart"
-            ><i className="fa fa-circle-o-notch fa-spin fa-1x fa-fw"></i>Cart
+            ><i class="fas fa-shopping-cart"></i>Cart {props.length}
             </Link>
         </div>
       </div>

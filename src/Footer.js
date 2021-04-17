@@ -20,11 +20,11 @@ const Footer=()=>{
             <p className="footer-links font-weight-bold">
               <a className="text-white" href="/">Home</a>
               |
-              <a className="text-white" href="/OnlineOrder">Menu</a>
+              <a className="text-white" href="/menu">Menu</a>
               |
-              <a className="text-white" href="/AboutUs">About</a>
+              <a className="text-white" href="/aboutus">About</a>
               |
-              <a className="text-white" href="/ContactUs">Contact</a>
+              <a className="text-white" href="/contactus">Contact</a>
             </p>
             <p className="text-light py-4 mb-4">&copy;2021 ISquare Innovations</p>
           </div>

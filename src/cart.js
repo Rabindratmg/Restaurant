@@ -4,6 +4,10 @@ import Button from "./Button.js";
 const Cart  = ( {cartitem,onAdditem,onDecrement} )=>{
     const finalprice= cartitem.reduce((a,c)=>a+c.price*c.qty,0);
 
+    function openForm(){
+        console.log("clicked")
+    }
+
     
     return(
         <div className="container-fluid" > 
@@ -30,7 +34,8 @@ const Cart  = ( {cartitem,onAdditem,onDecrement} )=>{
                         {(cartitem.length!==0)?
                             <div>  
                                 <h4>your final order price is {finalprice} </h4> 
-                                <Button btnname="Order"/>
+                                <Button onclick={openForm} btnname="Order"/>
+                                
                             </div>:<div>Add items</div>  
                             }   
                            </div>

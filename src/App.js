@@ -51,25 +51,25 @@ function App() {
   return (
         <Router>
         <div>
-            <NavBar />
+            <NavBar length={cartitems.length}/>
                 <Switch>
                         <Route exact path='/'>
                                 <Home></Home>
                         </Route>
-                        <Route path='/AboutUs'>
+                        <Route path='/aboutus'>
                                 <AboutUs></AboutUs>
                         </Route>
-                        <Route path='/Gallery'>
+                        <Route path='/gallery'>
                                 <Gallery></Gallery>
                         </Route>
-                        <Route path='/ContactUs'>
+                        <Route path='/contactus'>
                                 <ContactUs></ContactUs>
                         </Route>
-                        <Route path='/OnlineOrder'>
-                                <OnlineOrder items={ products } onAdditem={ onAdditems }></OnlineOrder>
+                        <Route path='/menu'>
+                                <OnlineOrder items={ products } check={cartitems} onAdditem={ onAdditems }></OnlineOrder>
                         </Route>
-                        <Route path="/Cart">
-                                <Cart cartitem={cartitems} onAdditem={Increment} onDecrement={Decrement}></Cart>
+                        <Route path="/cart">
+                                <Cart cartitem={cartitems} onAdditem={Increment} onDecrement={Decrement} ></Cart>
                         </Route>
                 </Switch>   
                 <Footer /> 

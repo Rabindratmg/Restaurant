@@ -4,7 +4,7 @@ import Button from "./Button.js";
 
 
 
-const OnlineOrder=( {items,onAdditem} )=>{
+const OnlineOrder=( {items,onAdditem,check} )=>{
     
     return(
         <div className="container-fluid">
@@ -14,11 +14,13 @@ const OnlineOrder=( {items,onAdditem} )=>{
                     <h4> {data.item}</h4>
                     <img style={{height:"100px",width:"100px"}} src={data.image} alt="MenuImages" />
                     <h4>RS {data.price}</h4>
-                    <Button onclick={()=>onAdditem(data)} btnname="Order"/>
+                    {check.find(x=>x.id===data.id)?<Button btnname="ItemsAdded"></Button>:
+                    <Button onclick={()=>onAdditem(data)} btnname="Order"/>}
                     <hr></hr>
                     <br></br>
                     <br></br>
                     <br></br>
+                    
                     
             </div>
             )}

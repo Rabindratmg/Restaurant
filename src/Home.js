@@ -23,8 +23,8 @@ function Home(){
         </h5>
         <br /><br />
         <div className="text-center">
-          <a href="/Gallery" class="btn btn-trans"><b>Explore !</b></a>
-          <a href="/OnlineOrder" class="btn btn-fill">See Menu</a>
+          <a href="/gallery" class="btn btn-trans"><b>Explore !</b></a>
+          <a href="/menu" class="btn btn-fill">See Menu</a>
         </div>
       </div>
       <br/>
@@ -45,7 +45,7 @@ function Home(){
                   <center>
                     <h5 className="card-title">Buff Momo</h5>
                     <p className="card-text">Hungry Grab a Quick Buff momo !!!! </p>
-                    <a href="/OnlineOrder" className="btn btn-primary">Order Now </a>
+                    <a href="/menu" className="btn btn-primary">Order Now </a>
 
                   </center>
                     
@@ -58,7 +58,7 @@ function Home(){
                   <center>
                     <h5 className="card-title">Buff Momo</h5>
                     <p className="card-text">Hungry Grab a Quick Buff momo !!!! </p>
-                    <a href="/OnlineOrder" className="btn btn-primary">Order Now </a>
+                    <a href="/menu" className="btn btn-primary">Order Now </a>
 
                   </center>
                     
@@ -71,7 +71,7 @@ function Home(){
                   <center>
                     <h5 className="card-title">Buff Momo</h5>
                     <p className="card-text">Hungry Grab a Quick Buff momo !!!! </p>
-                    <a href="/OnlineOrder" className="btn btn-primary">Order Now </a>
+                    <a href="/menu" className="btn btn-primary">Order Now </a>
 
                   </center>
                    
@@ -84,7 +84,7 @@ function Home(){
                   <center>
                     <h5 className="card-title">Buff Momo</h5>
                     <p className="card-text">Hungry Grab a Quick Buff momo !!!! </p>
-                    <a href="/OnlineOrder" className="btn btn-primary">Order Now </a>
+                    <a href="/menu" className="btn btn-primary">Order Now </a>
                   </center>
                 </div>
             </div>
@@ -121,7 +121,7 @@ function Home(){
               <br/>
               <br/>
               <center>
-              <Link to="/Gallery"><h3>See More on Gallery ---- </h3></Link></center>
+              <Link to="#/gallery"><h3>See More on Gallery ---- </h3></Link></center>
               <br/>
               <br/>
         </div>
@@ -175,19 +175,37 @@ function Home(){
         <br/>
         <br/>
         <hr></hr>
-        <div className="container-fluid" style={{backgroundColor:"whitesmoke"}}>
+        <div className="container-fluid">
           <center><h2>Customer Reviews </h2></center>
           <div className="container">
             <div className="row">
-              <div className="col">
-                  review1
+              <div className="col" >
+                  <div classname="">
+
+
+                  </div>
+                  <div>
+                    One of the best restro in kathamdnu valley.
+                  </div>
               </div>
               <div className="col">
-                review2
+                  <div classname="">
+
+
+                  </div>
+                  <div >
+                    Affortable price
+                  </div>
                 
               </div>
               <div className="col">
-                review3
+                  <div classname="">
+
+
+                  </div>
+                  <div>
+                    Service is very good
+                  </div>
                 
               </div>
 
