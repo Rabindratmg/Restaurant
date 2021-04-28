@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import NavBar from "./nav.js";
 import Home from "./Home.js";
 import AboutUs from './About.js';
@@ -8,12 +8,33 @@ import OnlineOrder from "./online.js";
 import Cart from "./Cart.js";
 import Footer from './Footer.js';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import data from "./menu.js"
+import axios from 'axios';
 
 
 function App() {
-        const [products]  = useState(data);
         const [cartitems, setcartitems] = useState([]);
+        const [menu, setmenu] = useState([]);
+
+        useEffect(() => {
+            axios.get("http://localhost:8000/api/")
+            
+            .then(resp=>{
+                console.log(resp.data)
+                setmenu(resp.data)
+            })
+            .catch(error=>console.log(error))
+           },[])
+
+        useEffect(() => {
+                axios.get("http://localhost:8000/cart/")
+                
+                .then(resp=>{
+                    console.log(resp.data)
+                    setcartitems(resp.data)
+                })
+                .catch(error=>console.log(error))
+               },[])
+
         const onAdditems = (product)=>{
                 const exist = cartitems.find(x=>x.id=== product.id);
                 if(exist){
@@ -66,7 +87,7 @@ function App() {
                                 <ContactUs></ContactUs>
                         </Route>
                         <Route path='/menu'>
-                                <OnlineOrder items={ products } check={cartitems} onAdditem={ onAdditems }></OnlineOrder>
+                                <OnlineOrder items={ menu } check={cartitems} onAdditem={ onAdditems }></OnlineOrder>
                         </Route>
                         <Route path="/cart">
                                 <Cart cartitem={cartitems} onAdditem={Increment} onDecrement={Decrement} ></Cart>

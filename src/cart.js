@@ -12,22 +12,42 @@ const Cart  = ( {cartitem,onAdditem,onDecrement} )=>{
     return(
         <div className="container-fluid" > 
             <div>
+            
             {cartitem.length===0?<div>cart is empty</div>:
+             
             cartitem.map((item)=>(
-                    <div className="col" key={item.id}>
+                    <div  key={item.id}>
                         <hr></hr>
-                        <h4> {item.item}</h4>
-                        <img style={{height:"100px",width:"100px"}} src={item.image} alt="MenuImages" />
-                        <h4>RS {item.price}</h4>
-                        <h6>No of items<Button onclick={()=>onDecrement(item)} btnname="-"/> {item.qty} <Button onclick={()=>onAdditem(item)} btnname="+"/></h6>
-                        <h6> total price of item = {item.price} * {item.qty} = {item.price*item.qty}</h6>
+                        <table >
+                        
+                            <tr >
+                                <td  >
+                                <h4> {item.item_name}</h4>
+                                </td>
+                                <td >
+                                <h4>RS {item.price}</h4>
+                                </td>
+                                <td >
+                                <h6><Button onclick={()=>onDecrement(item)} btnname="-"/> {item.qty} <Button onclick={()=>onAdditem(item)} btnname="+"/></h6>
+                                </td>
+                                <td>
+                                <h6>{item.price} * {item.qty} = {item.price*item.qty}</h6>
+                                </td>
+                            </tr>
+                      
+                        
+                        
+                        
+                            </table>
                         
                         </div>
+            ))}
+                       
                     
                      
                 
 
-                ))}
+                
                 <div>
                
                         

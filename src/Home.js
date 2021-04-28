@@ -23,8 +23,8 @@ function Home(){
         </h5>
         <br /><br />
         <div className="text-center">
-          <a href="/gallery" class="btn btn-trans"><b>Explore !</b></a>
-          <a href="/menu" class="btn btn-fill">See Menu</a>
+          <a href="/gallery" class="btn btn1 btn-trans"><b>Explore !</b></a>
+          <a href="/menu" class="btn  btn1 btn-fill">See Menu</a>
         </div>
       </div>
       <br/>
@@ -45,7 +45,7 @@ function Home(){
                   <center>
                     <h5 className="card-title">Buff Momo</h5>
                     <p className="card-text">Hungry Grab a Quick Buff momo !!!! </p>
-                    <a href="/menu" className="btn btn-primary">Order Now </a>
+                    <a href="/menu" className="btn  btn-primary">Order Now </a>
 
                   </center>
                     
@@ -96,7 +96,7 @@ function Home(){
         <div className="container-fluid" style={{backgroundColor:"white"}}>
           <br/>
           <br/>
-              <center><h1>Get Your Moments Captured ! </h1><button className="btn btn-trans" style={{borderColor:"red"}}>Visit Us </button></center>
+              <center><h1>Get Your Moments Captured ! </h1><button className="btn1 btn-trans" style={{borderColor:"red"}}>Visit Us </button></center>
               <br/>
               <br/>
 

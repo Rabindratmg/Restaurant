@@ -11,8 +11,7 @@ const OnlineOrder=( {items,onAdditem,check} )=>{
             <div className="row">
             {items.map(data=>
             <div className="col ml-4" key={data.id}>
-                    <h4> {data.item}</h4>
-                    <img style={{height:"100px",width:"100px"}} src={data.image} alt="MenuImages" />
+                    <h4> {data.item_name}</h4>
                     <h4>RS {data.price}</h4>
                     {check.find(x=>x.id===data.id)?<Button btnname="ItemsAdded"></Button>:
                     <Button onclick={()=>onAdditem(data)} btnname="Order"/>}
