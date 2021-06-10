@@ -7,13 +7,30 @@ import ContactUs from "./Contact.js";
 import OnlineOrder from "./online.js";
 import Cart from "./Cart.js";
 import Footer from './Footer.js';
+import Form from './form.js'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from 'axios';
+import Login from './login.js';
+import { mockComponent } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 
 function App() {
         const [cartitems, setcartitems] = useState([]);
-        const [menu, setmenu] = useState([]);
+        const [menu, setmenu] = useState([
+                {
+                'id':1,
+                'item_name':'momo',
+                'price': 200
+        },
+        {
+
+                'id':2,
+                'item_name':'chowmein',
+                'price': 100
+
+        }
+       
+]);
 
         useEffect(() => {
             axios.get("http://localhost:8000/api/")
@@ -25,15 +42,8 @@ function App() {
             .catch(error=>console.log(error))
            },[])
 
-        useEffect(() => {
-                axios.get("http://localhost:8000/cart/")
-                
-                .then(resp=>{
-                    console.log(resp.data)
-                    setcartitems(resp.data)
-                })
-                .catch(error=>console.log(error))
-               },[])
+      
+
 
         const onAdditems = (product)=>{
                 const exist = cartitems.find(x=>x.id=== product.id);
@@ -91,6 +101,12 @@ function App() {
                         </Route>
                         <Route path="/cart">
                                 <Cart cartitem={cartitems} onAdditem={Increment} onDecrement={Decrement} ></Cart>
+                        </Route>
+                        <Route path="/form">
+                                <Form></Form>
+                        </Route>
+                        <Route path="/login">
+                               <Login></Login> 
                         </Route>
                 </Switch>   
                 <Footer /> 

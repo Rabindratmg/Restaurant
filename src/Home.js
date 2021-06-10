@@ -23,8 +23,8 @@ function Home(){
         </h5>
         <br /><br />
         <div className="text-center">
-          <a href="/gallery" class="btn btn1 btn-trans"><b>Explore !</b></a>
-          <a href="/menu" class="btn  btn1 btn-fill">See Menu</a>
+          <a href="/gallery" className="btn btn1 btn-trans"><b>Explore !</b></a>
+          <a href="/menu" className="btn  btn1 btn-fill">See Menu</a>
         </div>
       </div>
       <br/>
@@ -121,7 +121,7 @@ function Home(){
               <br/>
               <br/>
               <center>
-              <Link to="#/gallery"><h3>See More on Gallery ---- </h3></Link></center>
+              <Link to="/gallery"><h3>See More on Gallery ---- </h3></Link></center>
               <br/>
               <br/>
         </div>
@@ -179,30 +179,18 @@ function Home(){
           <center><h2>Customer Reviews </h2></center>
           <div className="container">
             <div className="row">
-              <div className="col" >
-                  <div classname="">
-
-
-                  </div>
+              <div className="col">
                   <div>
                     One of the best restro in kathamdnu valley.
                   </div>
               </div>
               <div className="col">
-                  <div classname="">
-
-
-                  </div>
                   <div >
                     Affortable price
                   </div>
                 
               </div>
               <div className="col">
-                  <div classname="">
-
-
-                  </div>
                   <div>
                     Service is very good
                   </div>

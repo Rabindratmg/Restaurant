@@ -7,7 +7,7 @@ const NavBar =(props)=>{
       <header>
         <nav className="navbar navbar-expand-lg navbar-light">
         <a className="navbar-brand" href="/"><img
-          src="http://www.rabindratamang.com.np/logo.png"
+          src="logo.png"
           alt="logo"
           height="50px"
           width="50px"
@@ -54,7 +54,7 @@ const NavBar =(props)=>{
         </div>
         <div className="nav-block">
           <Link className="nav-link my-2 my-sm-0" to="/cart"
-            ><i class="fas fa-shopping-cart"></i>Cart {props.length}
+            ><i className="fas fa-shopping-cart"></i>Cart {props.length}
             </Link>
         </div>
       </div>
