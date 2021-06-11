@@ -1,17 +1,18 @@
 import Button from "./Button.js";
+import {Link} from 'react-router-dom';
 
-
-const Cart  = ( {cartitem,onAdditem,onDecrement} )=>{
-    const finalprice= cartitem.reduce((a,c)=>a+c.price*c.qty,0);
+const Cart  = ( {cartitem,onAdditem,onDecrement,DeleteData} )=>{
+    const finalprice= cartitem.reduce((a,c)=>a+c.price*c.quantity,0);
 
         function showcartitems(){
             return(
                 cartitem.map((item)=>(
-                    <tr  scope='row' key={item.id} >
+                    <tr   key={item.id} >
                     <td> {item.item_name}</td>
                     <td>RS {item.price}</td>
-                    <td><Button onclick={()=>onDecrement(item)} btnname="-"/> {item.qty} <Button onclick={()=>onAdditem(item)} btnname="+"/></td>
-                    <td>{item.price} * {item.qty} = {item.price*item.qty}</td>
+                    <td><Button onclick={()=>onDecrement(item)} btnname="-"/> {item.quantity} <Button onclick={()=>onAdditem(item)} btnname="+"/></td>
+                    <td>{item.price} * {item.quantity} = {item.price*item.quantity}</td>
+                    <td><button className="btn btn-danger" onClick={()=>DeleteData(item.id)}>Delete</button></td>
                     </tr>
                 ))
 
@@ -35,6 +36,7 @@ const Cart  = ( {cartitem,onAdditem,onDecrement} )=>{
                                 <th scope="col">Price</th>
                                 <th scope="col">Qunatity</th>
                                 <th scope="col">Final value(price x qunatity)</th>
+                                <th scope="col">Remove</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,10 +62,10 @@ const Cart  = ( {cartitem,onAdditem,onDecrement} )=>{
                         {(cartitem.length!==0)?
                             <div>  
                                 <h4>your final order price is {finalprice} </h4> 
-                                <a href="/form"><Button btnname="Order"/></a>
+                                <Link to="/form"><Button btnname="Order"/></Link>
                                 <br></br>
                                 Or login and get 10% discount
-                                <a href="/login"><Button btnname="Login"/></a>
+                                <Link to="/login"><Button btnname="Login"/></Link>
 
                                 
                             </div>:<div>Add items</div>  

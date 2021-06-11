@@ -11,30 +11,15 @@ import Form from './form.js'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from 'axios';
 import Login from './login.js';
-import { mockComponent } from 'react-dom/cjs/react-dom-test-utils.production.min';
+
 
 
 function App() {
         const [cartitems, setcartitems] = useState([]);
-        const [menu, setmenu] = useState([
-                {
-                'id':1,
-                'item_name':'momo',
-                'price': 200
-        },
-        {
-
-                'id':2,
-                'item_name':'chowmein',
-                'price': 100
-
-        }
-       
-]);
+        const [menu, setmenu] = useState([]);
 
         useEffect(() => {
-            axios.get("http://localhost:8000/api/")
-            
+            axios.get("http://localhost:8000/api/menu")
             .then(resp=>{
                 console.log(resp.data)
                 setmenu(resp.data)
@@ -42,44 +27,88 @@ function App() {
             .catch(error=>console.log(error))
            },[])
 
+           function AdditemsCart(data){
+                   console.log(data)
+                   return axios.post("http://localhost:8000/api/cart/", {
+                                item_name: data.item_name,
+                                price:  data.price,
+                                quantity: 1
+   
+                                
+                                })
+                                .then(response=>console.log(response))
+                                .catch(error=>console.log(error))
+
+                   
+           }
+           function DeleteCartItems(id){
+                   return axios.delete(`http://localhost:8000/api/cart/${id}`)
+                   .then(response=>console.log(response))
+                   .catch(error=>console.log(error))
+
+
+
+           }
+
+           useEffect(() => {
+                axios.get("http://localhost:8000/api/cart/")
+                .then(resp=>{
+                    console.log(resp.data)
+                    setcartitems(resp.data)
+                })
+                .catch(error=>console.log(error))
+               },[])
+    
+
+
+
+        
+        
+
       
 
 
-        const onAdditems = (product)=>{
-                const exist = cartitems.find(x=>x.id=== product.id);
-                if(exist){
-                         setcartitems(cartitems.map((x)=>x.id===product.id?{...exist,qty:exist.qty+1}:x));
+        // const onAdditems = (product)=>{
+        //         const exist = cartitems.find(x=>x.id=== product.id);
+        //         if(exist){
+        //                  setcartitems(cartitems.map((x)=>x.id===product.id?{...exist,qty:exist.qty+1}:x));
 
-                        }
-                 else{
-                 setcartitems([...cartitems,{...product,qty:1}]);
-                 }
+        //                 }
+        //          else{
+        //          setcartitems([...cartitems,{...product,qty:1}]);
+        //          }
 
 
-        }
+        // }
         const Increment=(product)=>{
-                const exist = cartitems.find(x=>x.id=== product.id);
-                if(exist){
-                        setcartitems(cartitems.map((x)=>x.id===product.id?{...exist,qty:exist.qty+1}:x));
+                return axios.put(`http://localhost:8000/api/cart/${product.id}/`,{
+                                item_name: product.item_name,
+                                price:  product.price,
+                                quantity: product.quantity+1
+                        
+                })
+                .then(response=>console.log(response))
+                .catch(error=>console.log(error))
+
 
                 }
+
+        const Decrement=(product)=>{
+                return axios.put(`http://localhost:8000/api/cart/${product.id}/`,{
+                        item_name: product.item_name,
+                        price:  product.price,
+                        quantity: product.quantity-1
+                
+        })
+        .then(response=>console.log(response))
+        .catch(error=>console.log(error))
 
 
         }
-
         
-        const Decrement=(product)=>{
-                const exist = cartitems.find(x=>x.id=== product.id);
-                if(exist.qty===1){
-                  setcartitems(cartitems.filter((x)=>x.id!==product.id));
-            
-                }
-                else{
-                  setcartitems(cartitems.map((x)=>x.id===product.id?{...exist,qty:exist.qty-1}:x));
-                }
-            
-              }
-  return (
+
+
+         return (
         <Router>
         <div>
             <NavBar length={cartitems.length}/>
@@ -97,10 +126,10 @@ function App() {
                                 <ContactUs></ContactUs>
                         </Route>
                         <Route path='/menu'>
-                                <OnlineOrder items={ menu } check={cartitems} onAdditem={ onAdditems }></OnlineOrder>
+                                <OnlineOrder items={ menu } check={cartitems} onAdditem={ AdditemsCart }></OnlineOrder>
                         </Route>
                         <Route path="/cart">
-                                <Cart cartitem={cartitems} onAdditem={Increment} onDecrement={Decrement} ></Cart>
+                                <Cart cartitem={cartitems} onAdditem={Increment} onDecrement={Decrement} DeleteData={DeleteCartItems}></Cart>
                         </Route>
                         <Route path="/form">
                                 <Form></Form>
