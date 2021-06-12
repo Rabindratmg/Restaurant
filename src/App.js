@@ -17,6 +17,19 @@ import Login from './login.js';
 function App() {
         const [cartitems, setcartitems] = useState([]);
         const [menu, setmenu] = useState([]);
+        
+
+        const LoginUser=(body)=>{
+                return fetch("http://localhost:8000/api/user/",{
+                        'method':'POST',
+                        headers:{
+                                'Content-Type':'application/json'
+                        },
+                        body: JSON.stringify(body)
+                })
+                .then(resp=>resp.json())
+                
+        }
 
         useEffect(() => {
             axios.get("http://localhost:8000/api/menu")
@@ -27,8 +40,8 @@ function App() {
             .catch(error=>console.log(error))
            },[])
 
+
            function AdditemsCart(data){
-                   console.log(data)
                    return axios.post("http://localhost:8000/api/cart/", {
                                 item_name: data.item_name,
                                 price:  data.price,
@@ -36,12 +49,22 @@ function App() {
    
                                 
                                 })
-                                .then(response=>console.log(response))
+                                .then(response=>setcartitems([...cartitems,response.data]))
                                 .catch(error=>console.log(error))
 
                    
            }
+
            function DeleteCartItems(id){
+                  const data = cartitems.filter((items_id)=>{
+                           if (items_id.id===id){
+                                   return false
+                           }
+                           else{
+                                  return  true
+                           }
+                   })
+                   setcartitems(data)
                    return axios.delete(`http://localhost:8000/api/cart/${id}`)
                    .then(response=>console.log(response))
                    .catch(error=>console.log(error))
@@ -49,6 +72,7 @@ function App() {
 
 
            }
+
 
            useEffect(() => {
                 axios.get("http://localhost:8000/api/cart/")
@@ -68,19 +92,17 @@ function App() {
       
 
 
-        // const onAdditems = (product)=>{
-        //         const exist = cartitems.find(x=>x.id=== product.id);
-        //         if(exist){
-        //                  setcartitems(cartitems.map((x)=>x.id===product.id?{...exist,qty:exist.qty+1}:x));
-
-        //                 }
-        //          else{
-        //          setcartitems([...cartitems,{...product,qty:1}]);
-        //          }
-
-
-        // }
         const Increment=(product)=>{
+                const data = cartitems.map((items)=>{
+                        if (items.id===product.id){
+                                return false
+                        }
+                        else{
+                               return  items
+                        }
+                })
+                setcartitems(data)
+                
                 return axios.put(`http://localhost:8000/api/cart/${product.id}/`,{
                                 item_name: product.item_name,
                                 price:  product.price,
@@ -135,7 +157,7 @@ function App() {
                                 <Form></Form>
                         </Route>
                         <Route path="/login">
-                               <Login></Login> 
+                               <Login login={LoginUser}></Login> 
                         </Route>
                 </Switch>   
                 <Footer /> 
