@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button.js"
+import Button from "./button.js"
 
 function Form(){
     const [name, setname] = useState('');
