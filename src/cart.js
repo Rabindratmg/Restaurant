@@ -1,40 +1,72 @@
 import Button from "./Button.js";
+import {Link} from 'react-router-dom';
 
+const Cart  = ( {cartitem,onAdditem,onDecrement,DeleteData} )=>{
+    const finalprice= cartitem.reduce((a,c)=>a+c.price*c.quantity,0);
 
-const Cart  = ( {cartitem,onAdditem,onDecrement} )=>{
-    const finalprice= cartitem.reduce((a,c)=>a+c.price*c.qty,0);
+        function showcartitems(){
+            return(
+                cartitem.map((item)=>(
+                    <tr   key={item.id} >
+                    <td> {item.item_name}</td>
+                    <td>RS {item.price}</td>
+                    <td><Button onclick={()=>onDecrement(item)} btnname="-"/> {item.quantity} <Button onclick={()=>onAdditem(item)} btnname="+"/></td>
+                    <td>{item.price} * {item.quantity} = {item.price*item.quantity}</td>
+                    <td><button className="btn btn-danger" onClick={()=>DeleteData(item.id)}>Delete</button></td>
+                    </tr>
+                ))
 
-    function openForm(){
-        console.log("clicked")
-    }
+            );
 
+        }
     
     return(
         <div className="container-fluid" > 
+        
             <div>
+            
             {cartitem.length===0?<div>cart is empty</div>:
-            cartitem.map((item)=>(
-                    <div className="col" key={item.id}>
-                        <hr></hr>
-                        <h4> {item.item}</h4>
-                        <img style={{height:"100px",width:"100px"}} src={item.image} alt="MenuImages" />
-                        <h4>RS {item.price}</h4>
-                        <h6>No of items<Button onclick={()=>onDecrement(item)} btnname="-"/> {item.qty} <Button onclick={()=>onAdditem(item)} btnname="+"/></h6>
-                        <h6> total price of item = {item.price} * {item.qty} = {item.price*item.qty}</h6>
+             
+            
+
+                    <table className="table">
+                        <thead>
+                                <tr>
+                                <th scope="col">Item name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Qunatity</th>
+                                <th scope="col">Final value(price x qunatity)</th>
+                                <th scope="col">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                  {showcartitems()}
+                            </tbody>
+                    </table>
+                            
+                      
                         
-                        </div>
+                        
+                        
+                        
+            }
+                       
                     
                      
                 
 
-                ))}
+                
                 <div>
                
                         
                         {(cartitem.length!==0)?
                             <div>  
                                 <h4>your final order price is {finalprice} </h4> 
-                                <Button onclick={openForm} btnname="Order"/>
+                                <Link to="/form"><Button btnname="Order"/></Link>
+                                <br></br>
+                                Or login and get 10% discount
+                                <Link to="/login"><Button btnname="Login"/></Link>
+
                                 
                             </div>:<div>Add items</div>  
                             }   
