@@ -7,9 +7,10 @@ const NavBar =(props)=>{
       <header>
         <nav className="navbar navbar-expand-lg navbar-light">
         <a className="navbar-brand" href="/"><img
-          src="logo.png"
+          src="public\logo.png"
           alt="logo"
           height="50px"
+          title="logo"
           width="50px"
         /></a>
       <a className="navbar-brand" style={{color:"blueviolet"}}
