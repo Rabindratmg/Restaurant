@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Gs cafe",
+  "name": "Online food ordering website",
   "icons": [
   ],
   "start_url": ".",
