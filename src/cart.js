@@ -2,6 +2,7 @@ import Button from "./Button.js";
 import {Link} from 'react-router-dom';
 
 const Cart  = ( {cartitem,onAdditem,onDecrement,DeleteData} )=>{
+    
     const finalprice= cartitem.reduce((a,c)=>a+c.price*c.quantity,0);
 
         function showcartitems(){
