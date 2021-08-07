@@ -7,7 +7,7 @@ const NavBar =(props)=>{
       <header>
         <nav className="navbar navbar-expand-lg navbar-light">
         <a className="navbar-brand" href="/"><img
-          src="public\logo.png"
+          src="logo.png"
           alt="logo"
           height="50px"
           title="logo"
