@@ -1,4 +1,3 @@
 #  Using React Frontend and Django Backend with Django Rest Framework
 
-# Hosted on 
- ### [Vist website](https://rabindratmg.github.io/Restaurant/)
+# Hosted on [visit website](https://merocafe.ga)
