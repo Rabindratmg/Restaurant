@@ -32,7 +32,7 @@ function App() {
         }
 
         useEffect(() => {
-            axios.get("http://localhost:8000/api/menu")
+            axios.get("http://localhost:8000/api/menu/")
             .then(resp=>{
                 console.log(resp.data)
                 setmenu(resp.data)

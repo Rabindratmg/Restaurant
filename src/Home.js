@@ -33,14 +33,14 @@ function Home(){
         <div style={{backgroundColor:"blueviolet",}}>
             <center>
               <br/>
-              <img src="https://burgerhousenepal.com/wp-content/uploads/2018/04/title-shape-white.png" alt="momo"/>
+              <img src="" alt="momo"/>
             <h2><u>Our Special Dishes</u></h2>
             <br/>
             </center>
             <div className="container">
             <div className="row">
             <div className=" col">
-                <img className="card-img-top" src="http://www.niteshkumarsapkota.com.np/restro/momo.png" alt="burger"/>
+                <img className="card-img-top" src="" alt="burger"/>
                 <div className="card-body">
                   <center>
                     <h5 className="card-title">Buff Momo</h5>
@@ -53,7 +53,7 @@ function Home(){
             </div>
 
             <div className="col">
-                <img className="card-img-top" src="http://www.niteshkumarsapkota.com.np/restro/momo.png" alt="Chowmein"/>
+                <img className="card-img-top" src="" alt="Chowmein"/>
                 <div className="card-body">
                   <center>
                     <h5 className="card-title">Buff Momo</h5>
@@ -66,7 +66,7 @@ function Home(){
             </div>
 
             <div className=" col">
-                <img className="card-img-top" src="http://www.niteshkumarsapkota.com.np/restro/momo.png" alt="thukpa"/>
+                <img className="card-img-top" src="" alt="thukpa"/>
                 <div className="card-body">
                   <center>
                     <h5 className="card-title">Buff Momo</h5>
@@ -79,7 +79,7 @@ function Home(){
             </div>
 
             <div className="col">
-                <img className="card-img-top" src="http://www.niteshkumarsapkota.com.np/restro/momo.png" alt="sasugaes"/>
+                <img className="card-img-top" src="" alt="sasugaes"/>
                 <div className="card-body">
                   <center>
                     <h5 className="card-title">Buff Momo</h5>

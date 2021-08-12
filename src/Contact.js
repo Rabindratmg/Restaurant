@@ -1,7 +1,13 @@
 const ContactUs=()=>{
     return(
         <div>
-            <h1>this is contact  page</h1>
+            <h2>Contact us at:</h2>
+            <li>
+                <a href="">Facebook</a>
+                <a href="">Instagram</a>
+                <a href="">Youtube</a>
+                <a href="">Twitter</a>
+            </li>
         </div>
 
     )
